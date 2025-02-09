@@ -62,3 +62,56 @@ function openLightbox(event) {
 document.querySelectorAll("#projects img").forEach((img) => {
   img.addEventListener("click", openLightbox);
 });
+
+// Function to validate the contact form
+function validateForm(event) {
+  event.preventDefault();
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const message = document.getElementById("message");
+  let valid = true;
+
+  if (name.value.trim() === "") {
+    name.classList.add("error");
+    valid = false;
+  } else {
+    name.classList.remove("error");
+  }
+
+  if (email.value.trim() === "" || !/\S+@\S+\.\S+/.test(email.value)) {
+    email.classList.add("error");
+    valid = false;
+  } else {
+    email.classList.remove("error");
+  }
+
+  if (message.value.trim() === "") {
+    message.classList.add("error");
+    valid = false;
+  } else {
+    message.classList.remove("error");
+  }
+
+  if (valid) {
+    alert("Form submitted successfully!");
+    // You can add code here to actually submit the form
+  }
+}
+
+// Add event listener to the contact form
+document
+  .querySelector("#contact form")
+  .addEventListener("submit", validateForm);
+
+// Add real-time validation feedback
+document
+  .querySelectorAll("#contact input, #contact textarea")
+  .forEach((input) => {
+    input.addEventListener("input", (event) => {
+      if (event.target.value.trim() === "") {
+        event.target.classList.add("error");
+      } else {
+        event.target.classList.remove("error");
+      }
+    });
+  });
