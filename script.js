@@ -2,6 +2,7 @@
 function toggleMenu() {
   const nav = document.querySelector("nav");
   nav.classList.toggle("active");
+  console.log("Menu toggled");
 }
 
 // Add event listener to the hamburger icon
@@ -16,6 +17,7 @@ function smoothScroll(event) {
     top: targetSection.offsetTop,
     behavior: "smooth",
   });
+  console.log(`Smooth scrolling to ${targetId}`);
 }
 
 // Add event listeners to navigation links
@@ -33,6 +35,7 @@ function filterProjects(category) {
       project.style.display = "none";
     }
   });
+  console.log(`Projects filtered by category: ${category}`);
 }
 
 // Add event listeners to filter buttons
@@ -56,6 +59,7 @@ function openLightbox(event) {
   lightbox.addEventListener("click", () => {
     lightbox.remove();
   });
+  console.log("Lightbox opened");
 }
 
 // Add event listeners to project images
@@ -94,7 +98,10 @@ function validateForm(event) {
 
   if (valid) {
     alert("Form submitted successfully!");
+    console.log("Form submitted successfully");
     // You can add code here to actually submit the form
+  } else {
+    console.log("Form validation failed");
   }
 }
 
