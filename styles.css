@@ -165,3 +165,31 @@ footer {
     background: #333;
     color: #fff;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    nav::before {
+        content: '☰';
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    nav.active ul {
+        display: block;
+        text-align: center;
+    }
+
+    #projects {
+        flex-direction: column;
+    }
+
+    #projects article {
+        flex: 1 1 100%;
+    }
+}
